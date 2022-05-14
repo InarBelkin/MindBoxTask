@@ -1,0 +1,5 @@
+SELECT p."Name", cs."Name" FROM "Products" as p
+LEFT JOIN (
+	SELECT pc."ProductId", c."Name" FROM "ProductCategory" as pc
+	INNER JOIN "Categories" as c ON c."Id" = pc."CategoryId"
+) AS cs ON p."Id" = cs."ProductId"
